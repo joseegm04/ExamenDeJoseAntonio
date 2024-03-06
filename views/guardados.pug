@@ -1,0 +1,13 @@
+extends layout 
+block content 
+    h1 Fichas guardadas en local 
+
+    .container
+        each personaje in personajes 
+        .card(style='width: 18rem;')
+          img.card-img-top(src=`${personaje.image}` alt='...')
+          .card-body
+            h5.card-title ##{personaje.id}
+            h6.card-subtitle.mb-2.text-body-secondary #{personaje.gender}
+            p.card-text #{new Date(personaje.created).toISOString().split('T')[0]}
+            button.btn.btn-warning(type='button') Guardar en BD
